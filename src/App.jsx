@@ -1,9 +1,8 @@
 import { useState } from "react";
-
+import React from "react"
 import PokemonCard from './components/PokemonCard'
 import './App.css'
-
-
+import NavBar from './components/NavBar'
 const pokemonList = [
   {
       name: "bulbasaur",
@@ -34,18 +33,21 @@ const pokemonList = [
 
 
 function App() {
-  const [pokemonIndex,setpokemonIndex]=useState(0);
-  
- const [disabled,setdisabled]=useState(false)
+  const [pokemonIndex,setPokemonIndex]=useState(2);
+  console.log(pokemonList);
+  console.log(pokemonIndex);
+  console.log(pokemonList[pokemonIndex]);
+  // const[buttonNext,setButton]=useState()
+//  const [disabled,setdisabled]=useState(false)
 
-  const handlePreviousClick =() =>{
-    setpokemonIndex((pokemonList)=>pokemonList-1)
+  // const handlePreviousClick =() =>{
+  //   setpokemonIndex((pokemonList)=>pokemonList-1)
     // if (disabled == pokemonList[0]){
     // setdisabled(true)
-  }
+  
      
-  const handleNextClick=()=>{
-    setpokemonIndex((pokemonList)=>pokemonList+1)}
+  // const handleNextClick=()=>{
+  //   setpokemonIndex((pokemonList)=>pokemonList+1)}
     // if(setdisabled== pokemonList[4]){
     //   setdisabled(true)
     
@@ -53,10 +55,15 @@ function App() {
   return (
     
       <div>
-        <PokemonCard pokemon={pokemonList[pokemonIndex]}/>
-       <button  onClick={handlePreviousClick} disabled={pokemonIndex<=0}>Prècedent</button>
-       <button  onClick={handleNextClick} disabled={pokemonIndex>=4}>Suivant</button>
         
+        <PokemonCard pokemon={pokemonList[pokemonIndex]}/>
+        {/* <Button setButton={handlePreviousClick}/> */}
+       {/* <button  onClick={handlePreviousClick} disabled={pokemonIndex<=0}>Prècedent</button>
+       <button  onClick={handleNextClick} disabled={pokemonIndex>=4}>Suivant</button> */}
+       <NavBar 
+          animal={pokemonList}
+          setPokemonIndex={setPokemonIndex} 
+       />
       </div>
        
     
